@@ -17,15 +17,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if ( Input.GetKeyDown(KeyCode.W) && isGrounded )
+        if ( (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded )
         {
             jump = true;
         }
-        else if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
             transform.position += Vector3.left * Time.deltaTime * speed;
         }
-        else if (Input.GetKey(KeyCode.D))
+        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
             transform.position += Vector3.right * Time.deltaTime * speed;
         }
