@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     private bool jump = false;
     private Rigidbody2D rb;
     private bool isGrounded = true;
+    private int noJump = 0;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -17,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if ( (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && isGrounded )
+        if ( (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) && (isGrounded || noJump == 1) )
         {
             jump = true;
         }
@@ -37,6 +39,11 @@ public class PlayerMovement : MonoBehaviour
             rb.AddForce(new Vector2(0, jumpForce));
             jump = false;
             isGrounded = false;
+            noJump ++;
+            if ( noJump == 2 )
+            {
+                noJump = 0;
+            }
         }
     }
 
