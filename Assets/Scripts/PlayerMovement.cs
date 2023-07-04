@@ -11,6 +11,10 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     private bool isGrounded = true;
     private int noJump = 0;
+
+    public AudioSource boing;
+    public AudioSource doubleBoing;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -36,7 +40,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if ( jump )
         {
+            if( noJump == 1 ) {
+                //  Double jump
+                doubleBoing.Play();
+            }
             rb.AddForce(new Vector2(0, jumpForce));
+
+            boing.Play();
+
             jump = false;
             isGrounded = false;
             noJump ++;
