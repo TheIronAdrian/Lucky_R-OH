@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f36eab84300872f4ea8b092f17f2befa
+guid: 7c5358a6b2b71b243991787349334077
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -129,127 +129,127 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Project Mute Tileset V2_0
+      name: Office_Man_Walk_0
       rect:
         serializedVersion: 2
-        x: 176
-        y: 128
-        width: 16
-        height: 16
+        x: 11
+        y: 0
+        width: 10
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e92c7c050a8eb504598d4666059f2082
-      internalID: -871554961
+      spriteID: 5488d92df2952c846b700f72f85e14dd
+      internalID: 1336947951
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Project Mute Tileset V2_1
+      name: Office_Man_Walk_1
       rect:
         serializedVersion: 2
-        x: 208
-        y: 128
-        width: 16
-        height: 16
+        x: 43
+        y: 0
+        width: 10
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7112ecdb1a8c7d040a65c303bab48eea
-      internalID: -1425909231
+      spriteID: 1e5b4161a843eb34c8f147a01bc33d74
+      internalID: -192935686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Project Mute Tileset V2_2
+      name: Office_Man_Walk_2
       rect:
         serializedVersion: 2
-        x: 240
-        y: 128
-        width: 16
-        height: 16
+        x: 75
+        y: 0
+        width: 10
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9445faa1ccb2f1b4bafdde1e10bfb54d
-      internalID: 1389575223
+      spriteID: 71c9c62c318abfd4b947ac9a3c1b5ead
+      internalID: 1855855524
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Project Mute Tileset V2_3
+      name: Office_Man_Walk_3
       rect:
         serializedVersion: 2
-        x: 176
-        y: 96
-        width: 16
-        height: 16
+        x: 107
+        y: 0
+        width: 10
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0c835e3876800114ea581268c3bebdb9
-      internalID: -1554995475
+      spriteID: ea58bc0e8800987438bb05f5de9468c4
+      internalID: -1144570132
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Project Mute Tileset V2_4
+      name: Office_Man_Walk_4
       rect:
         serializedVersion: 2
-        x: 208
-        y: 96
-        width: 16
-        height: 16
+        x: 139
+        y: 0
+        width: 10
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ed6144239583abf4581e21b0fcb1d7cb
-      internalID: -1103587247
+      spriteID: db15d1fece838354689762291d85a4cf
+      internalID: -1500339110
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Project Mute Tileset V2_5
+      name: Office_Man_Walk_5
       rect:
         serializedVersion: 2
-        x: 240
-        y: 96
-        width: 16
-        height: 16
+        x: 170
+        y: 0
+        width: 11
+        height: 15
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 100b1baece79d804b9db6c2c72e6ef00
-      internalID: -523547559
+      spriteID: d445c65631b4aa849a721c95809b51d6
+      internalID: -1547007145
       vertices: []
       indices: 
       edges: []
@@ -265,12 +265,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Project Mute Tileset V2_0: -1929048154
-      Project Mute Tileset V2_1: -1632917803
-      Project Mute Tileset V2_2: -871554961
-      Project Mute Tileset V2_3: -1425909231
-      Project Mute Tileset V2_4: 1389575223
-      Project Mute Tileset V2_5: -1554995475
+      Office_Man_Walk_0: 1336947951
+      Office_Man_Walk_1: -192935686
+      Office_Man_Walk_2: 1855855524
+      Office_Man_Walk_3: -1144570132
+      Office_Man_Walk_4: -1500339110
+      Office_Man_Walk_5: -1547007145
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
