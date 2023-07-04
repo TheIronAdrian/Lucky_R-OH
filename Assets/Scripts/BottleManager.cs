@@ -32,8 +32,6 @@ public class BottleManager : MonoBehaviour
     }
     void Update() 
     {
-        Debug.Log("isCollided: " + isCollided);
-        Debug.Log("isEnterPressed: " + isEnterPressed);
         if ( isCollided && isEnterPressed )
         {
             UpdateMultiplier();
