@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class BottleManager : MonoBehaviour
 {
+    public AudioSource bottleOpener;
+
+
     [SerializeField] private BottleScoring bottle;
     [SerializeField] private PlayerCollision col;
 
@@ -37,6 +40,10 @@ public class BottleManager : MonoBehaviour
         if ( isCollided && isEnterPressed )
         {
             UpdateMultiplier();
+            bottleOpener.Play();
+
+            // wait here a little
+
             bottle.DestroyBottle();
         }
     }
