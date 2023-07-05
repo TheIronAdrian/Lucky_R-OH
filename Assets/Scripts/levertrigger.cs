@@ -22,4 +22,18 @@ public class levertrigger : MonoBehaviour
             ok = 1;
         }
     }
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (ok == 0)
+            {
+                animator.SetTrigger("spin");
+                oprire.stop = 0;
+                oprire1.stop = 0;
+                oprire2.stop = 0;
+                ok = 1;
+            }
+        }
+    }
 }
