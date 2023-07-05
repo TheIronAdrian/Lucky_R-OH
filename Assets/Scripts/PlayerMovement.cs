@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private int jumpForce = 250;
-    [SerializeField] private int speed = 5;
-    [SerializeField] private float raycastDistance = 5;
+    [SerializeField] private int jumpForce = 400;
+    [SerializeField] private int speed = 4;
+    [SerializeField] private float raycastDistance = 0.1f;
+    [SerializeField] private float sidewaysDistance = 0.4f;
     private bool jump = false;
     private Rigidbody2D rb;
     private BoxCollider2D collider2d;
@@ -26,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (IsGrounded())
         {
-            Debug.Log("Is grounded");
+            //Debug.Log("Is grounded");
             noJump = 0;
         }
 
@@ -34,12 +35,12 @@ public class PlayerMovement : MonoBehaviour
         {
             jump = true;
         }
-        else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !closeToSideways(-1))
         {
             transform.rotation = Quaternion.Euler(0, 180 ,0);
             transform.position += Vector3.left * Time.deltaTime * speed;
         }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+        else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !closeToSideways(1))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             transform.position += Vector3.right * Time.deltaTime * speed;
@@ -64,6 +65,13 @@ public class PlayerMovement : MonoBehaviour
             //isGrounded = false;
             noJump ++;
         }
+    }
+
+    bool closeToSideways(int dir)
+    {
+        RaycastHit2D hit = Physics2D.Raycast(collider2d.bounds.center, Vector2.right * dir, sidewaysDistance, (1 << 3));
+        Debug.Log(hit.collider);
+        return (hit.collider != null && hit.collider.gameObject.tag == "floor");
     }
 
     bool IsGrounded()
