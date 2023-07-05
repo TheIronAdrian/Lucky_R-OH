@@ -10,7 +10,7 @@ public class movers2 : MonoBehaviour
     float rand;
     private void Start()
     {
-        rand = Random.Range(6f, 9f);
+        rand = Random.Range(5f, 8f);
     }
     private void Update()
     {
