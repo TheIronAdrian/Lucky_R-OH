@@ -20,7 +20,7 @@ public class oprire2 : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.transform.position.y > 0.05f)
+        if (collision.gameObject.transform.position.y > 0.03f)
             stop = 1;
     }
 }
