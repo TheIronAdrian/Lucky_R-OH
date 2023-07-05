@@ -29,10 +29,12 @@ public class PlayerMovement : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
         {
+            transform.rotation = Quaternion.Euler(0, 180 ,0);
             transform.position += Vector3.left * Time.deltaTime * speed;
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
         {
+            transform.rotation = Quaternion.Euler(0, 0, 0);
             transform.position += Vector3.right * Time.deltaTime * speed;
         }
     }
