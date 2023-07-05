@@ -27,16 +27,19 @@ public class BottleManager : MonoBehaviour
     }
     void UpdateIsCollided(bool val)
     {
+        Debug.Log("iscollided " + val);
         isCollided = val;
     }
     void UpdateIsEnterPressed(bool val)
     {
+        Debug.Log("isenterpressed " + val);
         isEnterPressed = val;
     }
     void Update() 
     {
         if ( isCollided && isEnterPressed )
         {
+
             UpdateMultiplier();
             bottleOpener.Play();
 
