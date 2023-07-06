@@ -8,6 +8,7 @@ public class levertrigger : MonoBehaviour
     [SerializeField] private Reel[] reels;
 
     [SerializeField] private AudioSource dingdingding;
+    [SerializeField] private AudioSource celebration;
 
     public string riggedResult = "septar";
     public int riggedProbability;
@@ -42,7 +43,7 @@ public class levertrigger : MonoBehaviour
     }
     IEnumerator LoadScene()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4.4f);
         SceneManager.LoadScene(0);
     }
     private void Update()
@@ -58,10 +59,11 @@ public class levertrigger : MonoBehaviour
                         scortotal = 5000;
                     PlayerPrefs.SetInt("playerScore", (int)scortotal);
                     scortotal = 0;
-                    StartCoroutine(LoadScene());
 
                     dingdingding.Stop();
+                    celebration.Play();
 
+                    StartCoroutine(LoadScene());
                 }
             }
         }
