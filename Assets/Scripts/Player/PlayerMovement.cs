@@ -95,6 +95,11 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
+                // stop
+                Debug.Log("stop");
+                walking.Stop();
+                isPlaying = false;
+
             animator.SetBool("IsRunning", false);
         }
     }
