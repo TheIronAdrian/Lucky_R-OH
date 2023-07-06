@@ -33,15 +33,28 @@ public class PlayerMovement : MonoBehaviour
     public void Pause()
     {
         isPaused = true;
+        rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
     public void Unpause()
     {
         isPaused = false;
+        rb.constraints = RigidbodyConstraints2D.None;
     }
 
     void Update()
     {
-
+        if ( Input.GetKeyDown(KeyCode.P) )
+        {
+            if( isPaused )
+            {
+                Unpause();
+                transform.position += Vector3.down * Time.deltaTime;
+            }
+            else
+            {
+                Pause();
+            }
+        }
         if (!isPaused)
         {
             if (IsGrounded())
