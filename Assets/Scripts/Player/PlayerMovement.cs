@@ -118,18 +118,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 animator.SetBool("IsRunning", false);
             }
-<<<<<<< Updated upstream
-        }
-        else
-        {
-                // stop
-                Debug.Log("stop");
-                walking.Stop();
-                isPlaying = false;
-
-            animator.SetBool("IsRunning", false);
-=======
->>>>>>> Stashed changes
         }
     }
     void FixedUpdate()
