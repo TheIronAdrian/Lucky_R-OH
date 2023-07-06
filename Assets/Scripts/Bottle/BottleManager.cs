@@ -6,12 +6,17 @@ public class BottleManager : MonoBehaviour
 {
     public AudioSource bottleOpener;
 
-
+    private int noBottles = 0;
     [SerializeField] private BottleScoring bottle;
     [SerializeField] private PlayerCollision col;
 
     bool isEnterPressed, isCollided;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        noBottles = PlayerPrefs.GetInt("noBottles");
+    }
+
     void Start()
     {
         isCollided = false;
@@ -23,7 +28,8 @@ public class BottleManager : MonoBehaviour
     }
     void UpdateMultiplier()
     {
-
+        noBottles++;
+        PlayerPrefs.GetInt("noBottles", noBottles);
     }
     void UpdateIsCollided(bool val)
     {
