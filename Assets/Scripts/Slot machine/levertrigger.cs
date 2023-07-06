@@ -59,6 +59,9 @@ public class levertrigger : MonoBehaviour
                     PlayerPrefs.SetInt("playerScore", (int)scortotal);
                     scortotal = 0;
                     StartCoroutine(LoadScene());
+
+                    dingdingding.Stop();
+
                 }
             }
         }
