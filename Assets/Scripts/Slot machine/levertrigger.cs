@@ -1,10 +1,6 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Runtime.CompilerServices;
-using Unity.Collections.LowLevel.Unsafe;
+using UnityEngine.SceneManagement;
 using UnityEngine;
-
+using System.Collections;
 
 public class levertrigger : MonoBehaviour
 {
@@ -44,9 +40,10 @@ public class levertrigger : MonoBehaviour
         dingdingding.Play();
         StartReels();
     }
-    private void IesireScena()
+    IEnumerator LoadScene()
     {
-        UnityEngine.Debug.Log("gugugaga");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
     }
     private void Update()
     {
@@ -61,7 +58,7 @@ public class levertrigger : MonoBehaviour
                         scortotal = 5000;
                     PlayerPrefs.SetInt("playerScore", (int)scortotal);
                     scortotal = 0;
-                    IesireScena();
+                    StartCoroutine(LoadScene());
                 }
             }
         }

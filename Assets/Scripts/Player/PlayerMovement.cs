@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int speed = 4;
     [SerializeField] private float raycastDistance = 0.1f;
     [SerializeField] private float sidewaysDistance = 0.4f;
+    [SerializeField] private float startX = -10f;
+    [SerializeField] private float startY = 69f;
     bool jump = false;
     private Rigidbody2D rb;
     private BoxCollider2D collider2d;
@@ -22,12 +24,32 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private AudioSource walking;
     private Animator animator;
 
+    private void Awake()
+    {
+        float x = PlayerPrefs.GetFloat("x", startX);
+        float y = PlayerPrefs.GetFloat("y", startY);
+        transform.position = new Vector3(x, y, 0);
+    }
+
     void Start()
     {
         isPaused = false;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<BoxCollider2D>();
+    }
+
+    private void OnApplicationQuit()
+    {
+        PlayerPrefs.SetFloat("x", startX);
+        PlayerPrefs.SetFloat("y", startY);
+    }
+
+    public void SavePosition()
+    {
+        Debug.Log("weffwewee");
+        PlayerPrefs.SetFloat("x", transform.position.x);
+        PlayerPrefs.SetFloat("y", transform.position.y);
     }
 
     public void Pause()
