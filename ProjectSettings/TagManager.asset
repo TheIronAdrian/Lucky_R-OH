@@ -6,6 +6,7 @@ TagManager:
   tags:
   - floor
   - bottle
+  - slotteleport
   layers:
   - Default
   - TransparentFX
