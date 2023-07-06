@@ -14,8 +14,11 @@ public class PlayerMovement : MonoBehaviour
     private BoxCollider2D collider2d;
     private int noJump = 0;
 
+    private bool isPlaying = false;
+
     [SerializeField] private AudioSource boing;
     [SerializeField] private AudioSource doubleBoing;
+    [SerializeField] private AudioSource walking;
 
     void Start()
     {
@@ -34,16 +37,48 @@ public class PlayerMovement : MonoBehaviour
         if ( (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && (IsGrounded() || noJump == 1) )
         {
             jump = true;
+            
+            // stop
+            Debug.Log("stop");
+            walking.Stop();
+            isPlaying = false;
         }
         else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !closeToSideways(-1))
         {
             transform.rotation = Quaternion.Euler(0, 180 ,0);
             transform.position += Vector3.left * Time.deltaTime * speed;
+            if( IsGrounded() ) {
+                // play
+                if(isPlaying == false) {
+                    Debug.Log("play");
+                    walking.Play();
+                    isPlaying = true;
+                } 
+            } else {    
+                // stop
+                Debug.Log("stop");
+                walking.Stop();
+                isPlaying = false;
+            }
         }
         else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !closeToSideways(1))
         {
             transform.rotation = Quaternion.Euler(0, 0, 0);
             transform.position += Vector3.right * Time.deltaTime * speed;
+
+            if(IsGrounded()) {
+                // play
+                if(isPlaying == false) {
+                    Debug.Log("play");
+                    walking.Play();
+                    isPlaying = true;
+                } 
+            } else {
+                // stop
+                Debug.Log("stop");
+                walking.Stop();
+                isPlaying = false;
+            }
         }
     }
     void FixedUpdate()
@@ -56,10 +91,11 @@ public class PlayerMovement : MonoBehaviour
                 //  Double jump
                 doubleBoing.Play();
                 rb.velocity = Vector3.zero;
+            } else {
+                boing.Play();
             }
             rb.AddForce(new Vector2(0, jumpForce));
 
-            boing.Play();
 
             jump = false;
             //isGrounded = false;
