@@ -9,12 +9,13 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int speed = 4;
     [SerializeField] private float raycastDistance = 0.1f;
     [SerializeField] private float sidewaysDistance = 0.4f;
-    [SerializeField] bool jump = false;
+    bool jump = false;
     private Rigidbody2D rb;
     private BoxCollider2D collider2d;
-    [SerializeField] int noJump = 0;
+    int noJump = 0;
 
-    private bool isPlaying = false;
+    private bool isSoundPlaying = false;
+    private bool isPaused = false;
 
     [SerializeField] private AudioSource boing;
     [SerializeField] private AudioSource doubleBoing;
@@ -23,75 +24,101 @@ public class PlayerMovement : MonoBehaviour
 
     void Start()
     {
+        isPaused = false;
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         collider2d = GetComponent<BoxCollider2D>();
     }
 
+    public void Pause()
+    {
+        isPaused = true;
+    }
+    public void Unpause()
+    {
+        isPaused = false;
+    }
+
     void Update()
     {
-        if (IsGrounded())
-        {
-            //Debug.Log("Is grounded");
-            noJump = 0;
-            animator.SetBool("IsJumping", false);
-            animator.SetBool("IsDoubleJump", false);
-        }
-        else
-        {
-            animator.SetBool("IsJumping", true);
-        }
 
-        if ( (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && (IsGrounded() || noJump == 1) )
+        if (!isPaused)
         {
-            jump = true;
+            if (IsGrounded())
+            {
+                //Debug.Log("Is grounded");
+                noJump = 0;
+                animator.SetBool("IsJumping", false);
+                animator.SetBool("IsDoubleJump", false);
+            }
+            else
+            {
+                animator.SetBool("IsJumping", true);
+            }
+            if ((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.Space)) && (IsGrounded() || noJump == 1))
+            {
+                jump = true;
 
-            animator.SetBool("IsRunning",false);
-           
+                animator.SetBool("IsRunning", false);
 
-            // stop
-            Debug.Log("stop");
-            walking.Stop();
-            isPlaying = false;
-        }
-        else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !closeToSideways(-1))
-        {
-            transform.rotation = Quaternion.Euler(0, 180 ,0);
-            animator.SetBool("IsRunning", IsGrounded());
-            transform.position += Vector3.left * Time.deltaTime * speed;
-            if( IsGrounded() ) {
-                // play
-                if(isPlaying == false) {
-                    Debug.Log("play");
-                    walking.Play();
-                    isPlaying = true;
-                } 
-            } else {    
+
                 // stop
                 Debug.Log("stop");
                 walking.Stop();
-                isPlaying = false;
+                isSoundPlaying = false;
             }
-        }
-        else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !closeToSideways(1))
-        {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
-            animator.SetBool("IsRunning", IsGrounded() );
-            transform.position += Vector3.right * Time.deltaTime * speed;
+            else if ((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)) && !closeToSideways(-1))
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+                animator.SetBool("IsRunning", IsGrounded());
+                transform.position += Vector3.left * Time.deltaTime * speed;
+                if (IsGrounded())
+                {
+                    // play
+                    if (isSoundPlaying == false)
+                    {
+                        Debug.Log("play");
+                        walking.Play();
+                        isSoundPlaying = true;
+                    }
+                }
+                else
+                {
+                    // stop
+                    Debug.Log("stop");
+                    walking.Stop();
+                    isSoundPlaying = false;
+                }
+            }
+            else if ((Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow)) && !closeToSideways(1))
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+                animator.SetBool("IsRunning", IsGrounded());
+                transform.position += Vector3.right * Time.deltaTime * speed;
 
-            if(IsGrounded()) {
-                // play
-                if(isPlaying == false) {
-                    Debug.Log("play");
-                    walking.Play();
-                    isPlaying = true;
-                } 
-            } else {
-                // stop
-                Debug.Log("stop");
-                walking.Stop();
-                isPlaying = false;
+                if (IsGrounded())
+                {
+                    // play
+                    if (isSoundPlaying == false)
+                    {
+                        Debug.Log("play");
+                        walking.Play();
+                        isSoundPlaying = true;
+                    }
+                }
+                else
+                {
+                    // stop
+                    Debug.Log("stop");
+                    walking.Stop();
+                    isSoundPlaying = false;
+                }
             }
+            else
+            {
+                animator.SetBool("IsRunning", false);
+            }
+<<<<<<< Updated upstream
         }
         else
         {
@@ -101,6 +128,8 @@ public class PlayerMovement : MonoBehaviour
                 isPlaying = false;
 
             animator.SetBool("IsRunning", false);
+=======
+>>>>>>> Stashed changes
         }
     }
     void FixedUpdate()

@@ -29,7 +29,7 @@ public class BottleManager : MonoBehaviour
     void UpdateMultiplier()
     {
         noBottles++;
-        PlayerPrefs.GetInt("noBottles", noBottles);
+        PlayerPrefs.SetInt("noBottles", noBottles);
     }
     void UpdateIsCollided(bool val)
     {

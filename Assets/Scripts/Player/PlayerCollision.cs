@@ -6,8 +6,10 @@ using System;
 public class PlayerCollision : MonoBehaviour
 {
     public Action collisionEnter;
+    public Action collisionEnterStar;
     public Action enterDown;
     public Action collisionExit;
+    public Action collisionExitStar;
     public Action enterUp;
    
     // Update is called once per frame
@@ -29,11 +31,21 @@ public class PlayerCollision : MonoBehaviour
             if(collisionExit != null)
                 collisionExit.Invoke();
         }
+        if (coll.gameObject.tag == "star")
+        {
+            if (collisionExitStar != null)
+                collisionExitStar.Invoke();
+        }
     }
     void OnTriggerEnter2D(Collider2D coll) {
         if(coll.gameObject.tag == "bottle") {
             if(collisionEnter != null)
                 collisionEnter.Invoke();
+        }
+        else if (coll.gameObject.tag == "star")
+        {
+            if (collisionEnterStar != null)
+                collisionEnterStar.Invoke();
         }
     }
 }
