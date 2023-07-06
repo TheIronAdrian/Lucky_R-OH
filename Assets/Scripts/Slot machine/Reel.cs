@@ -5,7 +5,7 @@ public class Reel : MonoBehaviour
     [SerializeField] BoxCollider2D bc;
     [SerializeField] float minDuration;
     [SerializeField] float maxDuration;
-
+    public int scor;
     private GameObject[] fruits;
     private float duration;
 
@@ -48,7 +48,6 @@ public class Reel : MonoBehaviour
 
     void StopReel()
     {
-        Debug.Log("StopReel");
         foreach (var mover in fruits)
         {
             mover.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -71,6 +70,35 @@ public class Reel : MonoBehaviour
         {
             if (string.IsNullOrEmpty(wantedResult) || collision.name == wantedResult)
             {
+                if (collision.name == "septar")
+                {
+                    scor = 500;
+                }
+                else
+                {
+                    if (collision.name == "cherry")
+                    {
+                        scor = 50;
+                    }
+                    else if (collision.name == "bell")
+                    {
+                        scor = 10;
+                    }
+                    else if (collision.name == "strugure")
+                    {
+                        scor = 10;
+                    }
+                    else if (collision.name == "lamaie")
+                    {
+                        scor = 50;
+                    }
+                    else if (collision.name == "pepene")
+                    {
+                        scor = 50;
+                    }
+                }
+                levertrigger.scortotal += scor;
+                Debug.Log(levertrigger.scortotal);
                 collision.transform.localPosition = new Vector2(collision.transform.localPosition.x, -4.8f);
                 StopReel();
             }
