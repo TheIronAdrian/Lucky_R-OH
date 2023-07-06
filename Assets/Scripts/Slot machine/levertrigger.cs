@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
 using Unity.Collections.LowLevel.Unsafe;
 using UnityEngine;
 
@@ -43,6 +44,10 @@ public class levertrigger : MonoBehaviour
         dingdingding.Play();
         StartReels();
     }
+    private void IesireScena()
+    {
+        UnityEngine.Debug.Log("gugugaga");
+    }
     private void Update()
     {
         if (!reels[2].IsPlaying())
@@ -56,6 +61,7 @@ public class levertrigger : MonoBehaviour
                         scortotal = 5000;
                     PlayerPrefs.SetInt("playerScore", (int)scortotal);
                     scortotal = 0;
+                    IesireScena();
                 }
             }
         }
