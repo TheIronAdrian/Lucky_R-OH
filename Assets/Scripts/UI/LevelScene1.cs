@@ -7,6 +7,7 @@ public class LevelScene1 : MonoBehaviour
 {
     public void Click()
     {
+        PlayerPrefs.SetInt("playerScore", 0);
         SceneManager.LoadScene("Level1");
     }
 }

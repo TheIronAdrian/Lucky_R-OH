@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float sidewaysDistance = 0.4f;
     [SerializeField] private float startX = -10f;
     [SerializeField] private float startY = 69f;
+    [SerializeField] private TMP_Text UIScoreText;
     bool jump = false;
     private Rigidbody2D rb;
     private BoxCollider2D collider2d;
@@ -29,6 +31,9 @@ public class PlayerMovement : MonoBehaviour
     {
         float x = PlayerPrefs.GetFloat("x", startX);
         float y = PlayerPrefs.GetFloat("y", startY);
+        int score = PlayerPrefs.GetInt("playerScore", 0);
+        string str = score.ToString().PadLeft(6, '0');
+        UIScoreText.text = str;
         transform.position = new Vector3(x, y, 0);
     }
 
