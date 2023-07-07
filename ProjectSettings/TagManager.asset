@@ -9,6 +9,7 @@ TagManager:
   - slotteleport
   - star
   - portal
+  - Chip
   layers:
   - Default
   - TransparentFX
