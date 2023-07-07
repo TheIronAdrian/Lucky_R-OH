@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] Canvas pauseMenu;
     [SerializeField] private int jumpForce = 400;
     [SerializeField] private int speed = 4;
     [SerializeField] private float raycastDistance = 0.1f;
@@ -54,11 +55,13 @@ public class PlayerMovement : MonoBehaviour
 
     public void Pause()
     {
+        pauseMenu.enabled = true;
         isPaused = true;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
     }
     public void Unpause()
     {
+        pauseMenu.enabled = false;
         isPaused = false;
         rb.constraints = RigidbodyConstraints2D.None;
     }
