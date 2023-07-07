@@ -41,6 +41,7 @@ public class StarManager : MonoBehaviour
             player.SavePosition();
             star.DestroyStar();
             PlayerPrefs.SetInt("displayStar", 0);
+            PlayerPrefs.SetString("level", SceneManager.GetActiveScene().name);
             SceneManager.LoadScene("pacanelescene");
         }
     }

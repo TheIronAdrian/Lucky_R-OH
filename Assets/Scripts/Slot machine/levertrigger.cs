@@ -52,7 +52,7 @@ public class levertrigger : MonoBehaviour
     IEnumerator LoadScene()
     {
         yield return new WaitForSeconds(4.4f);
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(PlayerPrefs.GetString("level", "Level1"));
     }
     private void Update()
     {

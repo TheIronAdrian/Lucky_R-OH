@@ -7,9 +7,11 @@ public class PlayerCollision : MonoBehaviour
 {
     public Action collisionEnter;
     public Action collisionEnterStar;
+    public Action collisionEnterPortal;
     public Action enterDown;
     public Action collisionExit;
     public Action collisionExitStar;
+    public Action collisionExitPortal;
     public Action enterUp;
    
     // Update is called once per frame
@@ -36,6 +38,11 @@ public class PlayerCollision : MonoBehaviour
             if (collisionExitStar != null)
                 collisionExitStar.Invoke();
         }
+        if (coll.gameObject.tag == "portal")
+        {
+            if (collisionExitPortal != null)
+                collisionExitPortal.Invoke();
+        }
     }
     void OnTriggerEnter2D(Collider2D coll) {
         if(coll.gameObject.tag == "bottle") {
@@ -46,6 +53,11 @@ public class PlayerCollision : MonoBehaviour
         {
             if (collisionEnterStar != null)
                 collisionEnterStar.Invoke();
+        }
+        else if (coll.gameObject.tag == "portal")
+        {
+            if (collisionEnterPortal != null)
+                collisionEnterPortal.Invoke();
         }
     }
 }

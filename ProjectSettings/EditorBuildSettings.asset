@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/pacanelescene.unity
     guid: b96ecf6af546a6243a7f998e899013d4
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: 1948b0f958d02467b80e0423e3c5820e
   m_configObjects: {}
