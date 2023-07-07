@@ -600,6 +600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 719226009}
   - component: {fileID: 719226010}
+  - component: {fileID: 719226011}
   m_Layer: 5
   m_Name: VolumeSlider
   m_TagString: Untagged
@@ -678,10 +679,34 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 719226011}
+        m_TargetAssemblyTypeName: VolumeSlider, Assembly-CSharp
+        m_MethodName: OnValueChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &719226011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719226008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27cc61510663c914d9246b32f5d709c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &846730981
 GameObject:
   m_ObjectHideFlags: 0
@@ -1084,6 +1109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3f1cb1621d339a44aab7b1203224826, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 719226011}
 --- !u!1 &1056281900
 GameObject:
   m_ObjectHideFlags: 0

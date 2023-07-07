@@ -20,7 +20,7 @@ public class levertrigger : MonoBehaviour
     private void StartReels()
     {
         nrb = PlayerPrefs.GetInt("noBottles");
-        riggedProbability = nrb * 10;
+        riggedProbability = nrb * 20;
         if (!reels[2].IsPlaying())
         {
             

@@ -8,7 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] Canvas pauseMenu;
     [SerializeField] private int jumpForce = 400;
-    [SerializeField] private int speed = 4;
+    [SerializeField] private float speed = 4;
     [SerializeField] private float raycastDistance = 0.1f;
     [SerializeField] private float sidewaysDistance = 0.4f;
     [SerializeField] private float startX = -10f;
@@ -35,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         string str = score.ToString().PadLeft(6, '0');
         UIScoreText.text = str;
         transform.position = new Vector3(x, y, 0);
+        int bottles = PlayerPrefs.GetInt("noBottles", 0);
+        speed -= speed * 0.1f * bottles;
     }
 
     void Start()
@@ -63,12 +65,14 @@ public class PlayerMovement : MonoBehaviour
         pauseMenu.enabled = true;
         isPaused = true;
         rb.constraints = RigidbodyConstraints2D.FreezePosition;
+        SavePosition();
     }
     public void Unpause()
     {
         pauseMenu.enabled = false;
         isPaused = false;
         rb.constraints = RigidbodyConstraints2D.None;
+        transform.position += Vector3.down * Time.deltaTime;
     }
 
     void Update()
@@ -83,7 +87,6 @@ public class PlayerMovement : MonoBehaviour
             if( isPaused )
             {
                 Unpause();
-                transform.position += Vector3.down * Time.deltaTime;
             }
             else
             {
