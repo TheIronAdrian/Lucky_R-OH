@@ -151,6 +151,12 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
+
+                // stop
+                Debug.Log("stop");
+                walking.Stop();
+                isSoundPlaying = false;
+
                 animator.SetBool("IsRunning", false);
             }
         }
