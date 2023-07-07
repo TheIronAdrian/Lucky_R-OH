@@ -16,6 +16,7 @@ public class levertrigger : MonoBehaviour
     public static float scortotal = 0;
     public static float multtotal = 1;
     int ok = 0;
+    int ok1 = 0;
     private void StartReels()
     {
         nrb = PlayerPrefs.GetInt("noBottles");
@@ -38,8 +39,15 @@ public class levertrigger : MonoBehaviour
     // Start is called before the first frame update
     private void OnMouseDown()
     {
-        dingdingding.Play();
-        StartReels();
+        if (ok == 0)
+        {
+            if (ok1 == 0)
+            {
+                dingdingding.Play();
+                StartReels();
+                ok1 = 1;
+            }
+        }
     }
     IEnumerator LoadScene()
     {
@@ -69,8 +77,12 @@ public class levertrigger : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            dingdingding.Play();
-            StartReels();
+            if (ok1 == 0)
+            {
+                dingdingding.Play();
+                StartReels();
+                ok1 = 1;
+            }
         }
 
     }
