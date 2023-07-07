@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SettingsButton : MonoBehaviour
+public class OnSettingsPress : MonoBehaviour
 {
-    public void Click()
+    public void OnSettingsPressFunction()
     {
         PlayerPrefs.SetString("currentSceneName", SceneManager.GetActiveScene().name);
         SceneManager.LoadScene("Settings");

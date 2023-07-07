@@ -73,6 +73,11 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
+        if(PlayerPrefs.GetInt("toPause") == 1)
+        {
+            Pause();
+            PlayerPrefs.SetInt("toPause", 0);
+        }
         if ( Input.GetKeyDown(KeyCode.P) )
         {
             if( isPaused )
