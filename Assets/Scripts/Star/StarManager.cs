@@ -26,7 +26,7 @@ public class StarManager : MonoBehaviour
     }
     void UpdateIsCollided(bool val)
     {
-        Debug.Log("iscollided " + val);
+        Debug.Log("!!!!!!!!!iscollided " + val);
         isCollided = val;
     }
     void UpdateIsEnterPressed(bool val)
