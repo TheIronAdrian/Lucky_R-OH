@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 455e214b22e830243b8d1b87e443bfca
+guid: 677d5d26869cb9f41af63b3e46f294e3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 4
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -129,13 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tileset_lava_0
+      name: MainMenuScreen_0
       rect:
         serializedVersion: 2
-        x: 146
-        y: 92
-        width: 4
-        height: 4
+        x: 122
+        y: 24
+        width: 1354
+        height: 760
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5dc14bf51a5185543898346157d25f05
-      internalID: -1199361310
+      spriteID: 3e37c9725f758804782c41f4171e2a6b
+      internalID: 2084188056
       vertices: []
       indices: 
       edges: []
@@ -160,7 +160,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tileset_lava_0: -2068823516
+      MainMenuScreen_0: 2084188056
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
