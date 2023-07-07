@@ -16,7 +16,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - poza
   - 
   - 
   - 
@@ -47,4 +47,7 @@ TagManager:
     locked: 0
   - name: SlotMachine
     uniqueID: 4198325537
+    locked: 0
+  - name: poza si fructe
+    uniqueID: 555273963
     locked: 0
