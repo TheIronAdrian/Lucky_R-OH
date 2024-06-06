@@ -1,2 +1,2 @@
-# JocNerdvana2023MINB
-Tabara Nerdvana Proiect Unity 2023
+# Lucky R-OH
+A 2-level platform rage game with hidden slot machines for points and other surprises :)
